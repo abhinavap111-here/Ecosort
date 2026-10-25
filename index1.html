@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSort | Smart Waste Classification</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- TensorFlow.js and Teachable Machine image library -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">♻</span>
+      <span>Eco<span class="brand-accent">Sort</span></span>
+    </a>
+    <span class="status"><span class="status-dot"></span> AI Waste Analyzer</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">SMARTER SORTING · GREENER LIVING</div>
+      <h1>Give your waste a <span>second life.</span></h1>
+      <p>Upload an image and let AI help identify the right waste category.</p>
+    </section>
+
+    <section class="dashboard">
+      <div class="panel upload-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="step-label">STEP 01</span>
+            <h2>Upload an image</h2>
+          </div>
+          <span class="heading-icon">↥</span>
+        </div>
+
+        <input type="file" id="imageInput" accept="image/*" hidden>
+
+        <label for="imageInput" class="dropzone" id="dropzone">
+          <img id="previewImage" alt="Preview of the uploaded waste"
+               hidden>
+          <div id="uploadPrompt" class="upload-prompt">
+            <div class="upload-icon">↑</div>
+            <h3>Drop your image here</h3>
+            <p>or <span>browse files</span> from your device</p>
+            <small>JPG, PNG, WEBP · Choose a clear photo</small>
+          </div>
+        </label>
+
+        <div class="file-info" id="fileInfo">
+          No image selected
+        </div>
+
+        <button id="classifyBtn" class="primary-btn" disabled>
+          <span>✦</span> Classify Waste
+        </button>
+
+        <p class="privacy-note">🔒 Your image is processed in your browser.</p>
+      </div>
+
+      <div class="panel result-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="step-label">STEP 02</span>
+            <h2>Classification result</h2>
+          </div>
+          <span class="heading-icon">⌁</span>
+        </div>
+
+        <div id="emptyResult" class="empty-result">
+          <div class="result-illustration">♻</div>
+          <h3>Ready to identify</h3>
+          <p>Your AI prediction will appear here once you classify an image.</p>
+        </div>
+
+        <div id="loadingResult" class="loading-result" hidden>
+          <div class="spinner"></div>
+          <h3>Analyzing your image...</h3>
+          <p>Your AI model is making a prediction.</p>
+        </div>
+
+        <div id="predictionResult" hidden>
+          <div class="result-category">
+            <span class="category-icon" id="categoryIcon">♻</span>
+            <div>
+              <span class="result-caption">PREDICTED CATEGORY</span>
+              <h3 id="categoryName">Plastic</h3>
+            </div>
+          </div>
+
+          <div class="confidence-heading">
+            <span>Model confidence</span>
+            <strong id="confidenceValue">0%</strong>
+          </div>
+          <div class="progress-track">
+            <div id="confidenceBar" class="progress-fill"></div>
+          </div>
+          <p class="confidence-note">
+            Confidence is the model's score, not a guarantee of correctness.
+          </p>
+
+          <div class="divider"></div>
+
+          <h3 class="breakdown-title">All category scores</h3>
+          <div id="allPredictions" class="predictions-list"></div>
+        </div>
+
+        <div id="errorMessage" class="error-message" hidden></div>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div class="info-icon">🌱</div>
+      <div>
+        <h3>Small actions. Big impact.</h3>
+        <p>Correct waste sorting helps support recycling and responsible disposal.</p>
+      </div>
+    </section>
+    
+<section class="team-section">
+  <div class="team-heading">
+    <span class="eyebrow">THE PEOPLE BEHIND ECOSORT</span>
+    <h2>Meet Our Team</h2>
+    <p>Working together for a cleaner, greener future.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      
+      <h3>Aadhidev Puthur</h3>
+
+    </div>
+
+    <div class="team-card">
+      
+      <h3>Aarnav Shailesh</h3>
+      
+    </div>
+
+    <div class="team-card">
+   
+      <h3>Abhijith Sanjeev</h3>
+ 
+    </div>
+
+    <div class="team-card">
+   
+      <h3>Abhinav A P</h3>
+   
+    </div>
+
+    <div class="team-card">
+
+      <h3>Alwin Binoy Paul</h3>
+
+    </div>
+  </div>
+</section>
+
+    <footer>
+      <span>EcoSort · AI-powered waste classification</span>
+      <span>Sort smart. Live green.</span>
+    </footer>
+  </main>
+</body>
+</html>
